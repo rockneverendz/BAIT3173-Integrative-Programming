@@ -31,7 +31,7 @@ class StaffLoginController extends Controller
             'password' => $request->password
         ], $request->remember))
         {
-            return redirect()->intended(route('staff.dashboard'));
+            return redirect()->intended(route('staff.home'));
         }
 
         return redirect()->back()->withInput($request->only('email','remember'));
