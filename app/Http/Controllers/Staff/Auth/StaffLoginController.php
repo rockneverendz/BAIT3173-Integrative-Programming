@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Staff\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class StaffLoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('auth.staff-login');
+        return view('staff.auth.login');
     }
  
     public function login(Request $request)

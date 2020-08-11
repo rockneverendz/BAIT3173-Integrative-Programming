@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Staff\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
@@ -32,6 +32,6 @@ class StaffForgotPasswordController extends Controller
     }
 
     public function showLinkRequestForm(){
-        return view('auth.passwords.email-staff');
+        return view('staff.auth.passwords.email');
     }
 }

@@ -22,14 +22,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('staff')->group(function(){
-    Route::get('/home', 'StaffController@index')->name('staff.home');
-    Route::get('/login', 'Auth\StaffLoginController@showLoginForm')->name('staff.login');
-    Route::post('/login', 'Auth\StaffLoginController@login')->name('staff.login.submit');
-    Route::get('/logout', 'Auth\StaffLoginController@logout')->name('staff.logout');
+    Route::get('/home', 'Staff\StaffController@index')->name('staff.home');
+    Route::get('/login', 'Staff\Auth\StaffLoginController@showLoginForm')->name('staff.login');
+    Route::post('/login', 'Staff\Auth\StaffLoginController@login')->name('staff.login.submit');
+    Route::get('/logout', 'Staff\Auth\StaffLoginController@logout')->name('staff.logout');
 
-    Route::post('/password/email', 'Auth\StaffForgotPasswordController@sendResetLinkEmail')->name('staff.password.email');
-    Route::get('/password/reset', 'Auth\StaffForgotPasswordController@showLinkRequestForm')->name('staff.password.request');
-    Route::post('/password/reset', 'Auth\StaffResetPasswordController@reset')->name('staff.password.update');
-    Route::get('/password/reset/{token}', 'Auth\StaffResetPasswordController@showResetForm')->name('staff.password.reset');
+    Route::post('/password/email', 'Staff\Auth\StaffForgotPasswordController@sendResetLinkEmail')->name('staff.password.email');
+    Route::get('/password/reset', 'Staff\Auth\StaffForgotPasswordController@showLinkRequestForm')->name('staff.password.request');
+    Route::post('/password/reset', 'Staff\Auth\StaffResetPasswordController@reset')->name('staff.password.update');
+    Route::get('/password/reset/{token}', 'Staff\Auth\StaffResetPasswordController@showResetForm')->name('staff.password.reset');
     
 });

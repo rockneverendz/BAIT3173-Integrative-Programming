@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Staff\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -45,7 +45,7 @@ class StaffResetPasswordController extends Controller
 
     public function showResetForm(Request $request, $token = null)
     {
-        return view('auth.passwords.reset-staff')->with(
+        return view('staff.auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }
