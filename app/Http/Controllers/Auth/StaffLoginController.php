@@ -11,7 +11,7 @@ class StaffLoginController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest:staff');
+        $this->middleware('guest:staff', ['except' => ['logout']]);
     }
 
     public function showLoginForm()
@@ -35,5 +35,10 @@ class StaffLoginController extends Controller
         }
 
         return redirect()->back()->withInput($request->only('email','remember'));
+    }
+
+    public function logout(){
+        Auth::guard('staff')->logout();
+        return redirect()->route('staff.login');
     }
 }

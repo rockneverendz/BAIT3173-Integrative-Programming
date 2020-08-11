@@ -22,7 +22,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('staff')->group(function(){
+    Route::get('/home', 'StaffController@index')->name('staff.home');
     Route::get('/login', 'Auth\StaffLoginController@showLoginForm')->name('staff.login');
     Route::post('/login', 'Auth\StaffLoginController@login')->name('staff.login.submit');
-    Route::get('/home', 'StaffController@index')->name('staff.home');
+    Route::get('/logout', 'Auth\StaffLoginController@logout')->name('staff.logout');
 });
