@@ -8,6 +8,34 @@
 | 19WMR09653 | Ng Shaw Fann          |
 | 19WMR09678 | Soo Cia Yang          |
 
+## Prerequisite 
+XAMPP
+Composer & Laravel *(Appendix 3.1 MVC with Laravel)*
+
+## How to run
+1. Open command prompt on root directory (where this README.md is located)
+2. `composer update`
+3. Using XAMPP, open MySQL admin panel
+4. Create MySQL database named `canteensystem`
+5. Update `DB_DATABASE` in `.env` to `canteensystem`
+6. `php artisan migrate`
+7. `php artisan serve`
+
+## Reset password not working!
+
+`.env` need to have email configured.
+
+## Add staff account through tinker
+
+    php artisan tinker
+
+    $staff = new App\Staff
+    $staff->staff_id_card = "sample_id_card"
+    $staff->email = "sample.email@gmail.com"
+    $staff->name = "sample_name"
+    $staff->password = Hash::make('sample_password')
+    $staff->save()
+
 
 
 - PHP and MySQL/MariaDB
