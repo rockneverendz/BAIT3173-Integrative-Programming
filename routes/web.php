@@ -28,7 +28,7 @@ Route::prefix('staff')->group(function(){
     // Authentication
     Route::get('/login', 'Staff\Auth\StaffLoginController@showLoginForm')->name('staff.login');
     Route::post('/login', 'Staff\Auth\StaffLoginController@login')->name('staff.login.submit');
-    Route::get('/logout', 'Staff\Auth\StaffLoginController@logout')->name('staff.logout');
+    Route::post('/logout', 'Staff\Auth\StaffLoginController@logout')->name('staff.logout');
 
     // Password Reset
     Route::post('/password/email', 'Staff\Auth\StaffForgotPasswordController@sendResetLinkEmail')->name('staff.password.email');

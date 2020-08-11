@@ -29,4 +29,10 @@ class StaffLoginController extends Controller
     {
         return view('staff.auth.login');
     }
+
+    // Override redirect to staff login 
+    protected function loggedOut(Request $request)
+    {
+        return redirect($this->redirectTo);
+    }
 }
