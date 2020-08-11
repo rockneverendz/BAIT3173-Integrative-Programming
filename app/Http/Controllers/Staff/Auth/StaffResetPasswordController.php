@@ -29,7 +29,7 @@ class StaffResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/staff/home';
+    protected $redirectTo = RouteServiceProvider::STAFF_HOME;
 
     public function __contruct (){
         $this->middleware('guest:staff');
