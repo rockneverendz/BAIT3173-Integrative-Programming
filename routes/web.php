@@ -35,4 +35,8 @@ Route::prefix('staff')->group(function(){
     Route::get('/password/reset', 'Staff\Auth\StaffForgotPasswordController@showLinkRequestForm')->name('staff.password.request');
     Route::post('/password/reset', 'Staff\Auth\StaffResetPasswordController@reset')->name('staff.password.update');
     Route::get('/password/reset/{token}', 'Staff\Auth\StaffResetPasswordController@showResetForm')->name('staff.password.reset');
+
+    // Top Up
+    Route::get('/credit/topup', 'Staff\Credit\TopUpController@index')->name('staff.credit.topup');
+    Route::post('/credit/topup', 'Staff\Credit\TopUpController@topUp')->name('staff.credit.topup.submit');
 });
