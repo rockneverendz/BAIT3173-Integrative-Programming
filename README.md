@@ -10,7 +10,7 @@
 
 ## Prerequisite 
 XAMPP  
-Composer & Laravel *(Appendix 3.1 MVC with Laravel)*
+Composer
 
 ## How to run
 1. Open command prompt on root directory (where this README.md is located)
