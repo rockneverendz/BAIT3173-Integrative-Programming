@@ -9,17 +9,19 @@
 | 19WMR09678 | Soo Cia Yang          |
 
 ## Prerequisite 
-XAMPP
+XAMPP  
 Composer & Laravel *(Appendix 3.1 MVC with Laravel)*
 
 ## How to run
 1. Open command prompt on root directory (where this README.md is located)
 2. `composer update`
-3. Using XAMPP, open MySQL admin panel
-4. Create MySQL database named `canteensystem`
-5. Update `DB_DATABASE` in `.env` to `canteensystem`
-6. `php artisan migrate`
-7. `php artisan serve`
+3. Duplicate `.env.example` and rename it `.env`
+4. `php artisan key:generate`
+5. Using XAMPP, open MySQL admin panel
+6. Create MySQL database named `canteensystem`
+7. Update `DB_DATABASE` in `.env` to `canteensystem`
+8. `php artisan migrate`
+9. `php artisan serve`
 
 ## Reset password not working!
 
