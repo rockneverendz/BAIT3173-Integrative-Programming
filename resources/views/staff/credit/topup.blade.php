@@ -4,10 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header">{{ __('Top Up') }}</div>
 
                 <div class="card-body">
+                    
                     <form method="POST" action="{{ route('staff.credit.topup') }}">
                         @csrf
 
@@ -49,6 +50,18 @@
                     </form>
                 </div>
             </div>
+            @if (session('status'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="alert-heading mb-3">Receipt</h4>
+                <p>Amount before : {{ session('status.before') }}</p>
+                <p>Top up amount : {{ session('status.amount') }}</p>
+                <hr>
+                <p class="mb-0">Amount after : {{ session('status.after') }}</p>
+            </div>        
+            @endif
         </div>
     </div>
 </div>

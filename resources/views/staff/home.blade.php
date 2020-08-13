@@ -13,8 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    <p>
+                        {{ __('You are logged in!') }}
+                    </p>
+                    <p>
+                        <a href="{{ route('staff.credit.topup') }}">{{ __('Top Up') }}</a>
+                    </p>
                 </div>
             </div>
         </div>
