@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::redirect('/staff', '/staff/home');
+Route::redirect('/staff', 'home');
 Route::prefix('staff')->group(function(){
     Route::get('/home', 'Staff\StaffController@index')->name('staff.home');
     
@@ -39,4 +39,9 @@ Route::prefix('staff')->group(function(){
     // Top Up
     Route::get('/credit/topup', 'Staff\Credit\TopUpController@index')->name('staff.credit.topup');
     Route::post('/credit/topup', 'Staff\Credit\TopUpController@topUp')->name('staff.credit.topup.submit');
+
+    // Meal
+    Route::redirect('/meal', 'list');
+    Route::get('/meal/create', 'Staff\Meal\CreateMeal@index')->name('staff.meal.create');
+    Route::post('/meal/create', 'Staff\Meal\CreateMeal@createMeal')->name('staff.meal.create.submit');
 });
