@@ -21,32 +21,32 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::redirect('/staff', 'home');
-Route::prefix('staff')->group(function(){
-    Route::get('/home', 'Staff\StaffController@index')->name('staff.home');
+Route::redirect('/admin', 'home');
+Route::prefix('admin')->group(function(){
+    Route::get('/home', 'Admin\AdminController@index')->name('admin.home');
     
     // Authentication
-    Route::get('/login', 'Staff\Auth\StaffLoginController@showLoginForm')->name('staff.login');
-    Route::post('/login', 'Staff\Auth\StaffLoginController@login')->name('staff.login.submit');
-    Route::post('/logout', 'Staff\Auth\StaffLoginController@logout')->name('staff.logout');
+    Route::get('/login', 'Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Admin\Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::post('/logout', 'Admin\Auth\AdminLoginController@logout')->name('admin.logout');
 
     // Password Reset
-    Route::post('/password/email', 'Staff\Auth\StaffForgotPasswordController@sendResetLinkEmail')->name('staff.password.email');
-    Route::get('/password/reset', 'Staff\Auth\StaffForgotPasswordController@showLinkRequestForm')->name('staff.password.request');
-    Route::post('/password/reset', 'Staff\Auth\StaffResetPasswordController@reset')->name('staff.password.update');
-    Route::get('/password/reset/{token}', 'Staff\Auth\StaffResetPasswordController@showResetForm')->name('staff.password.reset');
+    Route::post('/password/email', 'Admin\Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('/password/reset', 'Admin\Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('/password/reset', 'Admin\Auth\AdminResetPasswordController@reset')->name('admin.password.update');
+    Route::get('/password/reset/{token}', 'Admin\Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 
     // Top Up
-    Route::get('/credit/topup', 'Staff\Credit\TopUpController@index')->name('staff.credit.topup');
-    Route::post('/credit/topup', 'Staff\Credit\TopUpController@topUp')->name('staff.credit.topup.submit');
+    Route::get('/credit/topup', 'Admin\Credit\TopUpController@index')->name('admin.credit.topup');
+    Route::post('/credit/topup', 'Admin\Credit\TopUpController@topUp')->name('admin.credit.topup.submit');
 
     // Meal
     Route::redirect('/meal', 'list');
-    Route::get('/meal/list', 'Staff\Meal\ListMeals@index')->name('staff.meal.list');
-    Route::get('/meal/create', 'Staff\Meal\CreateMeal@index')->name('staff.meal.create');
-    Route::post('/meal/create', 'Staff\Meal\CreateMeal@createMeal')->name('staff.meal.create.submit');
-    Route::get('/meal/retrive/{id}', 'Staff\Meal\RetriveMeal@retriveMeal')->name('staff.meal.retrive');
-    Route::post('/meal/update/{id}', 'Staff\Meal\UpdateMeal@updateMeal')->name('staff.meal.update');
-    Route::get('/meal/delete/{id}', 'Staff\Meal\DeleteMeal@deleteMeal')->name('staff.meal.delete');
+    Route::get('/meal/list', 'Admin\Meal\ListMeals@index')->name('admin.meal.list');
+    Route::get('/meal/create', 'Admin\Meal\CreateMeal@index')->name('admin.meal.create');
+    Route::post('/meal/create', 'Admin\Meal\CreateMeal@createMeal')->name('admin.meal.create.submit');
+    Route::get('/meal/retrive/{id}', 'Admin\Meal\RetriveMeal@retriveMeal')->name('admin.meal.retrive');
+    Route::post('/meal/update/{id}', 'Admin\Meal\UpdateMeal@updateMeal')->name('admin.meal.update');
+    Route::get('/meal/delete/{id}', 'Admin\Meal\DeleteMeal@deleteMeal')->name('admin.meal.delete');
 
 });

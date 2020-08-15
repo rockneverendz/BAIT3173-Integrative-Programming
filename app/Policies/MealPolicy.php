@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Meal;
-use App\Staff;
+use App\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class MealPolicy
@@ -11,83 +11,83 @@ class MealPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the staff can view any models.
+     * Determine whether the admin can view any models.
      *
-     * @param  \App\Staff  $staff
+     * @param  \App\Admin  $admin
      * @return mixed
      */
-    public function viewAny(Staff $staff)
+    public function viewAny(Admin $admin)
     {
         //
     }
 
     /**
-     * Determine whether the staff can view the model.
+     * Determine whether the admin can view the model.
      *
-     * @param  \App\Staff  $staff
+     * @param  \App\Admin  $admin
      * @param  \App\Meal  $meal
      * @return mixed
      */
-    public function view(Staff $staff, Meal $meal)
+    public function view(Admin $admin, Meal $meal)
     {
-        return $staff->id === $meal->staff_id;
+        return $admin->id === $meal->admin_id;
     }
 
     /**
-     * Determine whether the staff can create models.
+     * Determine whether the admin can create models.
      *
-     * @param  \App\Staff  $staff
+     * @param  \App\Admin  $admin
      * @return mixed
      */
-    public function create(Staff $staff)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the staff can update the model.
-     *
-     * @param  \App\Staff  $staff
-     * @param  \App\Meal  $meal
-     * @return mixed
-     */
-    public function update(Staff $staff, Meal $meal)
-    {
-        return $staff->id === $meal->staff_id;
-    }
-
-    /**
-     * Determine whether the staff can delete the model.
-     *
-     * @param  \App\Staff  $staff
-     * @param  \App\Meal  $meal
-     * @return mixed
-     */
-    public function delete(Staff $staff, Meal $meal)
-    {
-        return $staff->id === $meal->staff_id;
-    }
-
-    /**
-     * Determine whether the staff can restore the model.
-     *
-     * @param  \App\Staff  $staff
-     * @param  \App\Meal  $meal
-     * @return mixed
-     */
-    public function restore(Staff $staff, Meal $meal)
+    public function create(Admin $admin)
     {
         //
     }
 
     /**
-     * Determine whether the staff can permanently delete the model.
+     * Determine whether the admin can update the model.
      *
-     * @param  \App\Staff  $staff
+     * @param  \App\Admin  $admin
      * @param  \App\Meal  $meal
      * @return mixed
      */
-    public function forceDelete(Staff $staff, Meal $meal)
+    public function update(Admin $admin, Meal $meal)
+    {
+        return $admin->id === $meal->admin_id;
+    }
+
+    /**
+     * Determine whether the admin can delete the model.
+     *
+     * @param  \App\Admin  $admin
+     * @param  \App\Meal  $meal
+     * @return mixed
+     */
+    public function delete(Admin $admin, Meal $meal)
+    {
+        return $admin->id === $meal->admin_id;
+    }
+
+    /**
+     * Determine whether the admin can restore the model.
+     *
+     * @param  \App\Admin  $admin
+     * @param  \App\Meal  $meal
+     * @return mixed
+     */
+    public function restore(Admin $admin, Meal $meal)
+    {
+        //
+    }
+
+    /**
+     * Determine whether the admin can permanently delete the model.
+     *
+     * @param  \App\Admin  $admin
+     * @param  \App\Meal  $meal
+     * @return mixed
+     */
+    public function forceDelete(Admin $admin, Meal $meal)
     {
         //
     }

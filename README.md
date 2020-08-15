@@ -27,16 +27,16 @@ Composer
 
 `.env` need to have email configured.
 
-## Add staff account through tinker
+## Add admin account through tinker
 
     php artisan tinker
 
-    $staff = new App\Staff
-    $staff->staff_id_card = "sample_id_card"
-    $staff->email = "sample.email@gmail.com"
-    $staff->name = "sample_name"
-    $staff->password = Hash::make('sample_password')
-    $staff->save()
+    $admin = new App\Admin
+    $admin->name = "sample_name"
+    $admin->description = "sample description"
+    $admin->email = "sample.email@gmail.com"
+    $admin->password = Hash::make('sample_password')
+    $admin->save()
 
 
 
@@ -52,7 +52,7 @@ Composer
     - Sanitize Input?
     - Limit number of login attempts?
 - XML, XSLT and XPath *(Chapter 4)*
-    - Everytime the canteen staff update the menu a new XML file is generated
+    - Everytime the canteen admin update the menu a new XML file is generated
     - The XML contains the menu
     - Customer view XML instead of getting from database
 - Web service technology *(Chapter 5A)*

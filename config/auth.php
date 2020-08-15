@@ -47,14 +47,14 @@ return [
             'hash' => false,
         ],
 
-        'staff' => [
+        'admin' => [
             'driver' => 'session',
-            'provider' => 'staffs',
+            'provider' => 'admins',
         ],
 
-        'staff-api' => [
+        'admin-api' => [
             'driver' => 'token',
-            'provider' => 'staffs',
+            'provider' => 'admins',
             'hash' => false,
         ],
     ],
@@ -82,9 +82,9 @@ return [
             'model' => App\User::class,
         ],
 
-        'staffs' => [
+        'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Staff::class,
+            'model' => App\Admin::class,
         ],
         // 'users' => [
         //     'driver' => 'database',
@@ -115,8 +115,8 @@ return [
             'throttle' => 60,
         ],        
         
-        'staffs' => [
-            'provider' => 'staffs',
+        'admins' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 15,
             'throttle' => 240,
