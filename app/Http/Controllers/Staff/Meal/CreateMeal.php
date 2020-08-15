@@ -53,7 +53,7 @@ class CreateMeal extends Controller
         $meal->save();
 
         // Continue to list with status
-        return redirect()->route('staff.meal.list');
+        return redirect()->route('staff.meal.list')->with('status', trans('meal.created'));
     }
 
     private function validateMeal(Request $request)
