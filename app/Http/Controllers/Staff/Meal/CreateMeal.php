@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Meal;
+use Auth;
 
 class CreateMeal extends Controller
 {
@@ -46,6 +47,7 @@ class CreateMeal extends Controller
         $meal->price = $price;
         $meal->availability = $active;
         $meal->image = $path;
+        $meal->staff_id = Auth::id();
 
         // Update Database
         $meal->save();
