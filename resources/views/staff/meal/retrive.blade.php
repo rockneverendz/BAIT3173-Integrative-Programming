@@ -89,7 +89,34 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Update') }}
                                 </button>
+
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                                    {{ __('Delete') }}
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        <div class="modal-body">
+                                            Are you sure to delete?
+                                        </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <a class="btn btn-danger" href="{{ route('staff.meal.delete', ['id' => $meal->id], false) }}" role="button">Confirm Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </form>
                 </div>

@@ -47,4 +47,6 @@ Route::prefix('staff')->group(function(){
     Route::post('/meal/create', 'Staff\Meal\CreateMeal@createMeal')->name('staff.meal.create.submit');
     Route::get('/meal/retrive/{id}', 'Staff\Meal\RetriveMeal@retriveMeal')->name('staff.meal.retrive');
     Route::post('/meal/update/{id}', 'Staff\Meal\UpdateMeal@updateMeal')->name('staff.meal.update');
+    Route::get('/meal/delete/{id}', 'Staff\Meal\DeleteMeal@deleteMeal')->name('staff.meal.delete');
+
 });
