@@ -20,8 +20,11 @@ class CreateMealsTable extends Migration
             $table->unsignedDecimal('price', 5, 2);
             $table->boolean('availability');
             $table->string('image');
+            $table->unsignedBigInteger('staff_id');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('staff_id')->references('id')->on('staffs');
         });
     }
 
