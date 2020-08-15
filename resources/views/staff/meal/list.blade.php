@@ -27,7 +27,7 @@
                         <td>{{ $meal->description }}</td>
                         <td>{{ $meal->price }}</td>
                         <td>{{ $meal->availability == 1 ? 'Available' : 'Unavailable' }}</td>
-                        <td><a href="{{ route('staff.meal.retrive.submit', ['id' => $meal->id], false) }}">{{ __('Details') }}</a></td>
+                        <td><a href="{{ route('staff.meal.retrive', ['id' => $meal->id], false) }}">{{ __('Details') }}</a></td>
                         
                     </tr>
                     @endforeach
