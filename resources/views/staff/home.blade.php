@@ -19,6 +19,9 @@
                     <p>
                         <a href="{{ route('staff.credit.topup') }}">{{ __('Top Up') }}</a>
                     </p>
+                    <p>
+                        <a href="{{ route('staff.meal.list') }}">{{ __('Meal List') }}</a>
+                    </p>
                 </div>
             </div>
         </div>

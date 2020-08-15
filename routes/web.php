@@ -42,6 +42,7 @@ Route::prefix('staff')->group(function(){
 
     // Meal
     Route::redirect('/meal', 'list');
+    Route::get('/meal/list', 'Staff\Meal\ListMeals@index')->name('staff.meal.list');
     Route::get('/meal/create', 'Staff\Meal\CreateMeal@index')->name('staff.meal.create');
     Route::post('/meal/create', 'Staff\Meal\CreateMeal@createMeal')->name('staff.meal.create.submit');
 });
