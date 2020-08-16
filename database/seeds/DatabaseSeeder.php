@@ -144,7 +144,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Traditional Local Nasi Lemak.',
             'price' => 3.0,
             'availability' => true,
-            'image' => 'images/seed_nasi-lemak.jpg',
+            'image' => 'public/images/seed_nasi-lemak.jpg',
             'admin_id' => '1',
         ])->save();
 
@@ -153,7 +153,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Best Rendang Curry in Malaysia.',
             'price' => 5.0,
             'availability' => true,
-            'image' => 'images/seed_NasiLemakRendang.jpg',
+            'image' => 'public/images/seed_NasiLemakRendang.jpg',
             'admin_id' => '1',
         ])->save();
 
@@ -162,7 +162,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Spicy Nasi Goreng with anchovy.',
             'price' => 4.0,
             'availability' => true,
-            'image' => 'images/seed_NasiGorengKampung.jpg',
+            'image' => 'public/images/seed_NasiGorengKampung.jpg',
             'admin_id' => '1',
         ])->save();
 
@@ -171,7 +171,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Kue Tiao Goreng with prawn and Bean sprouts.',
             'price' => 4.0,
             'availability' => true,
-            'image' => 'images/seed_KuetiaoGoreng.jpg',
+            'image' => 'public/images/seed_KuetiaoGoreng.jpg',
             'admin_id' => '1',
         ])->save();
 
@@ -180,7 +180,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Fried rice dish made by covering or wrapping chicken fried rice, in thin fried egg or omelette.',
             'price' => 4.0,
             'availability' => true,
-            'image' => 'images/seed_nasi-goreng-pattaya.jpg',
+            'image' => 'public/images/seed_nasi-goreng-pattaya.jpg',
             'admin_id' => '1',
         ])->save();
 
@@ -189,7 +189,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Yellow noodles fried in with garlic, onion or shallots, fried prawn, chicken, or sliced bakso (meatballs), chili.',
             'price' => 4.0,
             'availability' => true,
-            'image' => 'images/seed_MeeGoreng.jpg',
+            'image' => 'public/images/seed_MeeGoreng.jpg',
             'admin_id' => '1',
         ])->save();
     }
