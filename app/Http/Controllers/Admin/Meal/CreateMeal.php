@@ -38,7 +38,7 @@ class CreateMeal extends Controller
         $image = $request->file('image');
 
         // Store image
-        $path = Storage::putFile('images', $image, 'public');
+        $path = Storage::putFile('public/images', $image);
 
         // Create new meal
         $meal = new Meal;

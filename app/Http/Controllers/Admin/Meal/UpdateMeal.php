@@ -45,7 +45,7 @@ class UpdateMeal extends Controller
         if ($image = $request->file('image')) 
         {
             Storage::delete($meal->image);
-            $path = Storage::putFile('images', $image, 'public');
+            $path = Storage::putFile('public/images', $image);
             $meal->image = $path;
         }
 
@@ -53,7 +53,7 @@ class UpdateMeal extends Controller
         $meal->save();
 
         // Continue to list with status
-        return redirect()->route('admin.meal.list')->with('status', trans('meal.updated'));
+        return redirect()->back()->with('status', trans('meal.updated'));
     }
 
     private function validateMeal(Request $request)
