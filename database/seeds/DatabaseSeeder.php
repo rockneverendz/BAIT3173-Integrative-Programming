@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Roasted Chicken Rice, as the name suggests, is traditionally made by roasting the chicken in a wood-fired brick oven.',
             'price' => 5.0,
             'availability' => true,
-            'image' => 'images/seed_RoastedChickenRice.jpg',
+            'image' => 'public/images/seed_RoastedChickenRice.jpg',
             'admin_id' => '3',
         ])->save();
 
@@ -96,7 +96,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Drumstick Chicken Rice, as the name suggests, rice with drumstick.',
             'price' => 6.0,
             'availability' => true,
-            'image' => 'images/seed_DrumstickChickenRice.jpg',
+            'image' => 'public/images/seed_DrumstickChickenRice.jpg',
             'admin_id' => '3',
         ])->save();
 
@@ -105,7 +105,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Chicken live in kampung with rice.',
             'price' => 5.0,
             'availability' => true,
-            'image' => 'images/seed_KampungChickenRice.jpg',
+            'image' => 'public/images/seed_KampungChickenRice.jpg',
             'admin_id' => '3',
         ])->save();
 
@@ -114,7 +114,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Smoked Duck Rice.',
             'price' => 6.0,
             'availability' => true,
-            'image' => 'images/seed_SmokedDuckRice.jpg',
+            'image' => 'public/images/seed_SmokedDuckRice.jpg',
             'admin_id' => '3',
         ])->save();
 
@@ -123,7 +123,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Chicken Chop with Rice.',
             'price' => 6.0,
             'availability' => true,
-            'image' => 'images/seed_ChickenChopRice.jpg',
+            'image' => 'public/images/seed_ChickenChopRice.jpg',
             'admin_id' => '3',
         ])->save();
 
@@ -132,7 +132,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Steam Chicken Rice.',
             'price' => 5.0,
             'availability' => true,
-            'image' => 'images/seed_SteamChickenRice.jpg',
+            'image' => 'public/images/seed_SteamChickenRice.jpg',
             'admin_id' => '3',
         ])->save();
     }
