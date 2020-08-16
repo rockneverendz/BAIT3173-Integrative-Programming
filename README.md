@@ -13,19 +13,31 @@ XAMPP
 Composer
 
 ## How to run
-1. Open command prompt on root directory (where this README.md is located)
-2. `composer update`
-3. Duplicate `.env.example` and rename it `.env`
-4. `php artisan key:generate`
-5. Using XAMPP, open MySQL admin panel
-6. Create MySQL database named `canteensystem`
-7. Update `DB_DATABASE` in `.env` to `canteensystem`
-8. `php artisan migrate`
-9. `php artisan serve`
+ 1. Open command prompt on root directory (where this README.md is located)
+ 2. `composer update`
+ 3. Duplicate `.env.example` and rename it `.env`
+ 4. `php artisan key:generate`
+ 5. Using XAMPP, open MySQL admin panel
+ 6. Create MySQL database named `canteensystem`
+ 7. Update `DB_DATABASE` in `.env` to `canteensystem`
+ 8. `php artisan storage:link`
+ 9. `php artisan migrate`
+10. `php artisan db:seed`
+11. `php artisan serve`
 
-## Reset password not working!
+## FAQ
+
+### Reset password not working!
 
 `.env` need to have email configured.
+
+### Broken image links!
+
+Run `php artisan storage:link`
+
+### Rebuild Database!
+
+Run `php artisan migrate:refresh --seed`
 
 ## Add admin account through tinker
 
