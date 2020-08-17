@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('/user')->group(function(){
+    Route::get('/home', 'User\HomeController@index')->name('user.home');
     
     // Login & Logout
     Route::post('/login', 'User\Auth\LoginController@login');
@@ -37,9 +38,13 @@ Route::prefix('/user')->group(function(){
     // Registration Routes...
     Route::post('/register', 'User\Auth\RegisterController@register');
     Route::get('/register', 'User\Auth\RegisterController@showRegistrationForm')->name('user.register');
+
+    // Email Verification
+    Route::post('/email/resend', 'User\Auth\VerificationController@resend')->name('user.verification.resend');
+    Route::get('/email/verify', 'User\Auth\VerificationController@show')->name('user.verification.notice');
+    Route::get('/email/verify/{id}/{hash}', 'User\Auth\VerificationController@verify')->name('user.verification.verify');    
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::redirect('/admin', 'home');
 Route::prefix('admin')->group(function(){
