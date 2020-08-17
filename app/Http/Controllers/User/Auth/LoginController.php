@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\User\Auth;
 
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
@@ -41,5 +42,11 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('user.auth.login');
+    }
+
+    // Override redirect to user login 
+    protected function loggedOut(Request $request)
+    {
+        return redirect($this->redirectTo);
     }
 }
