@@ -17,7 +17,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::prefix('/user')->group(function(){
+    
+    // Login & Logout
+    Route::post('/login', 'User\Auth\LoginController@login');
+    Route::get('/login', 'User\Auth\LoginController@showLoginForm')->name('user.login');
+    Route::post('/logout', 'User\Auth\LoginController@logout')->name('user.logout');
+
+    // Password Confirm
+    Route::get('/password/confirm', 'User\Auth\ConfirmPasswordController@showConfirmForm')->name('user.password.confirm');
+    Route::post('/password/confirm', 'User\Auth\ConfirmPasswordController@confirm');
+    
+    // Password Reset
+    Route::post('/password/email', 'User\Auth\ForgotPasswordController@sendResetLinkEmail')->name('user.password.email');
+    Route::get('/password/reset', 'User\Auth\ForgotPasswordController@showLinkRequestForm')->name('user.password.request');
+    Route::post('/password/reset', 'User\Auth\ResetPasswordController@reset')->name('user.password.update');
+    Route::get('/password/reset/{token}', 'User\Auth\ResetPasswordController@showResetForm')->name('user.password.reset');
+
+    // Registration Routes...
+    Route::post('/register', 'User\Auth\RegisterController@register');
+    Route::get('/register', 'User\Auth\RegisterController@showRegistrationForm')->name('user.register');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
