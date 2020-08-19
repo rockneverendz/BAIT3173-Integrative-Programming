@@ -45,6 +45,7 @@ Route::prefix('/user')->group(function(){
     Route::get('/email/verify/{id}/{hash}', 'User\Auth\VerificationController@verify')->name('user.verification.verify');    
 
     Route::get('/meal/stalls', 'User\Meal\Stall@index')->name('user.meal.stalls');
+    Route::get('/meal/stalls/{stall_id}', 'User\Meal\Stall@showStallDetails')->name('user.meal.stall');
 
 });
 
