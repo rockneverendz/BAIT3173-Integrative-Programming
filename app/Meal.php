@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Meal extends Model
 {
+    // Many to one relationship
+    public function admin()
+    {
+        return $this->belongsTo('App\Admin');
+    }
+    
     use SoftDeletes;
     //
 }

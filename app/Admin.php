@@ -14,6 +14,12 @@ class Admin extends Authenticatable
     protected $table = 'admins';
     protected $guard = 'admin';
 
+    // One to many relationship
+    public function meals()
+    {
+        return $this->hasMany('App\Meal');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
