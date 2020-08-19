@@ -16,16 +16,25 @@ class RetriveMeal extends Controller
 
     public function retriveMeal($id = null)
     {
-        $admin = Auth::user();
-        $meal = Meal::find($id);
+        
 
-        if ($admin->can('view', $meal))
+        $admin = Auth::user();
+        
+        
+        if ($meal = Meal::find($id))
         {
-            return view('admin.meal.retrive', ['meal' => $meal]);
+            if ($admin->can('view', $meal))
+            {
+                return view('admin.meal.retrive', ['meal' => $meal]);
+            }
+            else 
+            {
+                abort(403);
+            }
         }
-        else 
+        else
         {
-            return redirect()->route('admin.meal.list');
-        }
+            abort(404);
+        }       
     }
 }
