@@ -11,6 +11,8 @@
             </div>
             @endif
 
+            @if ($cart)
+
             <table class="table table-hover border">
                 <thead class="thead-light">
                     <tr>
@@ -50,6 +52,26 @@
                     </tr>
                 </tbody>
             </table>
+
+
+
+            <div class="bg-light card mb-3 text-center">
+                <div class="card-body justify-content-end row">
+                    <a class="btn btn-primary w-auto mx-3" href="{{ route('user.cart.checkout') }}" role="button">
+                        Continue
+                    </a>
+                </div>
+            </div>
+
+            @else
+
+            <div class="bg-light card mb-3 text-center">
+                <div class="card-body">
+                    Your cart is empty!
+                </div>
+            </div>
+
+            @endif
         </div>
     </div>
 </div>
