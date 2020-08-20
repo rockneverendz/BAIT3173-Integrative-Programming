@@ -38,7 +38,7 @@
                             <td>RM {{ $price }}</td>
                             <td>{{ $quantity }}</td>
                             <td>RM {{ $subtotal }}</td>
-                            <td><a href="#">Remove</a></td>
+                            <td><a href="{{ route('user.cart.delete', ['meal_id' => $id], false) }}">Remove</a></td>
                         </tr>
                     @endforeach
                     <tr>

@@ -54,6 +54,7 @@ Route::prefix('/user')->group(function(){
     // Order
     Route::post('/cart/add', 'User\Cart\UpdateCart@addToCart')->name('user.cart.add');
     Route::get('/cart/list', 'User\Cart\ListCart@index')->name('user.cart.list');
+    Route::get('/cart/delete/{meal_id}', 'User\Cart\RemoveItem@removeItem')->name('user.cart.delete');
 
 });
 
