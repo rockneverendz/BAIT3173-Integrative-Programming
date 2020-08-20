@@ -22,7 +22,7 @@ class ListCart extends Controller
     {
         $cart = $request->session()->get('cart');
 
-        return view('user.order.list', ['cart' => $cart]);
+        return view('user.cart.list', ['cart' => $cart]);
     }
  
 }
