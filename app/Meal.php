@@ -13,6 +13,10 @@ class Meal extends Model
         return $this->belongsTo('App\Admin');
     }
     
+    public function orders()
+    {
+        return $this->belongsToMany('App\Order')->using('App\Orderlist');
+    }
     use SoftDeletes;
     //
 }
