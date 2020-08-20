@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\User\Meal;
+namespace App\Http\Controllers\User\Stall;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin;
 
-class Stall extends Controller
+class ListStalls extends Controller
 {
     /**
      * Create a new controller instance.
@@ -27,7 +27,7 @@ class Stall extends Controller
     {
         $stalls = Admin::all();
 
-        return view('user.meal.stalls', ['stalls' => $stalls]);
+        return view('user.stall.list', ['stalls' => $stalls]);
     }
 
     public function showStallDetails($stalls_id = null)
@@ -35,7 +35,7 @@ class Stall extends Controller
         if ($stall = Admin::find($stalls_id))
         {
             $meals = $stall->meals()->get();
-            return view('user.meal.menu', ['meals' => $meals]);
+            return view('user.stall.retrive', ['meals' => $meals]);
         }
         else
         {
