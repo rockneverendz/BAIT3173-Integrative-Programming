@@ -37,14 +37,13 @@ class UpdateCart extends Controller
         // If Meal already exists in cart
         if ($value = $request->session()->pull($key))
         {
-            $quantity += $value['quantity'];
+            $quantity += $value[0]['quantity'];
 
             // Check if quantity exceed 100
             if ($quantity > 100)
                 $quantity = 100;
         };
         
-
         $request->session()->push($key, [
             'name' => $meal->name,
             'price' => $meal->price,
