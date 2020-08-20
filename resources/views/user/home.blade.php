@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <p>
+                        <a href="{{ route('user.stall.list') }}">{{ __('Stall List') }}</a>
+                    </p>
                 </div>
             </div>
         </div>

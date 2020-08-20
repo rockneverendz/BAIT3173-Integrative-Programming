@@ -4,26 +4,41 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="row row-cols-1 row-cols-md-2">
-            @forelse ($meals as $meal)
 
-                <div class="col mb-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Image of {{ $meal->name }}">
-                        <div class="card-body">
-                            <h5 class="card-title m-0">{{ $meal->name }}</h5>
-                        </div>
-                    </div>
+            @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+            @endif
+
+            <img src="{{ Storage::url($meal->image) }}" class="d-block img-fluid mb-3 mx-auto rounded">
+
+            <div class="bg-light card mb-3 text-center">
+                <div class="card-header h2">
+                    {{ $meal->name }}
                 </div>
-            
-            @empty
-            
-                <p>Menu unavailable</p>
-            
-            @endforelse
+                <div class="card-body">
+                    {{ $meal->description }}
+                </div>
+                <div class="card-footer">
+                    RM {{ $meal->price }}
+                </div>
+            </div>
+
+            <div class="bg-light card mb-3 text-center">
+                <div class="card-body justify-content-end row">
+                    <form method="POST" action="{{ route('user.cart.add') }}">
+                        @csrf
+                        <input id="id" type="hidden" name="id" value="{{ $meal->id }}">
+                        <label for="quantity" class="my-auto text-md-right">{{ __('Quantity : ') }}</label>
+                        <input id="quantity" type="number" min="1" max="100" value="{{ old('quantity', 1) }}" class="d-inline form-control w-auto mx-3 @error('quantity') is-invalid @enderror" name="quantity">
+                        <button type="submit" class="btn btn-primary w-auto mx-3">
+                            {{ __('Add to Cart') }}
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>    
+    </div>
 </div>
-
 @endsection

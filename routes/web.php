@@ -44,8 +44,12 @@ Route::prefix('/user')->group(function(){
     Route::get('/email/verify', 'User\Auth\VerificationController@show')->name('user.verification.notice');
     Route::get('/email/verify/{id}/{hash}', 'User\Auth\VerificationController@verify')->name('user.verification.verify');    
 
-    Route::get('/meal/stalls', 'User\Meal\Stall@index')->name('user.meal.stalls');
-    Route::get('/meal/stalls/{stall_id}', 'User\Meal\Stall@showStallDetails')->name('user.meal.stall');
+    // Stall
+    Route::get('/stall/list', 'User\Stall\ListStalls@index')->name('user.stall.list');
+    Route::get('/stall/{stall_id}', 'User\Stall\ListStalls@showStallDetails')->name('user.stall.retrive');
+
+    // Meal
+    Route::get('/meal/{meal_id}', 'User\Meal\RetriveMeal@index')->name('user.meal.retrive');
 
 });
 

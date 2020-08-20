@@ -34,8 +34,11 @@ class ListStalls extends Controller
     {
         if ($stall = Admin::find($stalls_id))
         {
-            $meals = $stall->meals()->get();
-            return view('user.stall.retrive', ['meals' => $meals]);
+            $meals = $stall->meals()->where('availability', true)->get();
+            return view('user.stall.retrive', [
+                'stall' => $stall,
+                'meals' => $meals, 
+            ]);
         }
         else
         {
