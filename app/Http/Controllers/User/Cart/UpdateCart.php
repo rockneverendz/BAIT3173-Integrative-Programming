@@ -25,7 +25,6 @@ class UpdateCart extends Controller
         // Retrive form values 
         $id = $request->input('id');
         $quantity = (integer)$request->input('quantity');
-        $session = $request->session()->get('cart');
         $key = 'cart.'.$id;
 
         // Get meal data
@@ -35,22 +34,22 @@ class UpdateCart extends Controller
         if ($meal->availability == false)
             abort(403);
 
-        // Meal already exists in cart
+        // If Meal already exists in cart
         if ($value = $request->session()->pull($key))
         {
-            $quantity += $value[0];
+            $quantity += $value['quantity'];
 
             // Check if quantity exceed 100
             if ($quantity > 100)
-                $request->session()->push($key, 100);
-            else
-                $request->session()->push($key, $quantity);
-        }
-        // Meal does not exists in cart
-        else
-        {
-            $request->session()->push($key, $quantity);
-        }
+                $quantity = 100;
+        };
+        
+
+        $request->session()->push($key, [
+            'name' => $meal->name,
+            'price' => $meal->price,
+            'quantity' => $quantity,
+        ]);
         
         return back()->with('status', trans('cart.added'));
     }
