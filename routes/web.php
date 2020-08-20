@@ -50,6 +50,9 @@ Route::prefix('/user')->group(function(){
 
     // Meal
     Route::get('/meal/{meal_id}', 'User\Meal\RetriveMeal@index')->name('user.meal.retrive');
+    
+    // Order
+    Route::post('/cart/add', 'User\Cart\UpdateCart@addToCart')->name('user.cart.add');
 
 });
 
