@@ -5,6 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
+            @if (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <table class="table table-hover border">
                 <thead class="thead-light">
                     <tr>

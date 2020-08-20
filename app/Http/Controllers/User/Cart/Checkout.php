@@ -53,7 +53,7 @@ class Checkout extends Controller
         else
         {
             // Return not enough credit error
-            abort(404);
+            return back()->with('error', trans('checkout.low_credit'));
         }
 
         // Make order
@@ -74,6 +74,7 @@ class Checkout extends Controller
             $orderlist->save();
         }
         
+        $request->session()->forget('cart');
         return redirect()->route('user.home')->with('status', trans('checkout.successful'));
     }
  
