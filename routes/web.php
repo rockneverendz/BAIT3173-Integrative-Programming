@@ -56,6 +56,7 @@ Route::prefix('/user')->group(function(){
     Route::get('/cart/list', 'User\Cart\ListCart@index')->name('user.cart.list');
     Route::get('/cart/delete/{meal_id}', 'User\Cart\RemoveItem@removeItem')->name('user.cart.delete');
     Route::get('/cart/checkout', 'User\Cart\Checkout@index')->name('user.cart.checkout');
+    Route::post('/cart/checkout', 'User\Cart\Checkout@checkout')->name('user.cart.checkout.submit');
 
 });
 

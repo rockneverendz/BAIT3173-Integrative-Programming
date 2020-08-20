@@ -44,10 +44,10 @@
             </table>
 
             <div class="card mb-3">
-                <div class="card-header">{{ __('Checkout') }}</div>
+                <div class="card-header">Checkout</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.cart.add') }}">
+                    <form method="POST" action="{{ route('user.cart.checkout') }}">
                         @csrf
 
                         <div class="form-group row">
