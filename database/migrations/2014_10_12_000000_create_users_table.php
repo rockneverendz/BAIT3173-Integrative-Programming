@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->unsignedDecimal('credit', 8, 2)->default(0);
             $table->rememberToken();
             $table->timestamps();
+            $table->string('api_token', 60)->unique()->nullable();
         });
     }
 
