@@ -21,7 +21,7 @@ class ListOrders extends Controller
 
     public function index(Request $request)
     {
-        $orders = Auth::user()->orders;
+        $orders = Auth::user()->orders()->orderBy('created_at','desc')->get();
 
         return view('user.order.list', ['orders' => $orders]);
     }

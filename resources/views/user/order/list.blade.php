@@ -9,7 +9,18 @@
 
                 @foreach ($orders as $order)
 
-                    <table class="table table-hover border">
+                    <div class="card mb-1">
+                        <div class="border-0 card-header d-flex justify-content-between">
+                            <div>
+                                Order #{{ $order->id }}
+                            </div>
+                            <div>
+                                Created on : {{ $order->created_at }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="border mb-5 table table-sm">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Name</th>
@@ -38,10 +49,10 @@
                                     <td>RM {{ $subtotal }}</td>
                                 </tr>
                             @endforeach
-                            <tr>
+                            <tr class="table-primary">
                                 <td scope="row"></td>
                                 <td></td>
-                                <td></td>
+                                <td>Total : </td>
                                 <td>RM {{ $total }}</td>
                             </tr>
                         </tbody>
