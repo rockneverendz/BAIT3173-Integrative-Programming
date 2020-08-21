@@ -23,13 +23,15 @@ Route::prefix('/user')->group(function(){
     Route::post('/login', 'API\User\Auth\LoginController@login');
     Route::post('/logout', 'API\User\Auth\LoginController@logout');
 
-    // Registration Routes...
+    // Registration Routes
     Route::post('/register', 'API\User\Auth\RegisterController@register');
 
     Route::group(['middleware' => 'auth:api'], function() {
         // Meal
         Route::get('/meals', 'API\User\MealController@index');
         Route::get('/meals/{meal}', 'API\User\MealController@show');
+
+        Route::post('/cart/checkout', 'API\User\Checkout@checkout');
 
     });
 
