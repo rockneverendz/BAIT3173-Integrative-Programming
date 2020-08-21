@@ -51,12 +51,15 @@ Route::prefix('/user')->group(function(){
     // Meal
     Route::get('/meal/{meal_id}', 'User\Meal\RetriveMeal@index')->name('user.meal.retrive');
     
-    // Order
+    // Cart
     Route::post('/cart/add', 'User\Cart\UpdateCart@addToCart')->name('user.cart.add');
     Route::get('/cart/list', 'User\Cart\ListCart@index')->name('user.cart.list');
     Route::get('/cart/delete/{meal_id}', 'User\Cart\RemoveItem@removeItem')->name('user.cart.delete');
     Route::get('/cart/checkout', 'User\Cart\Checkout@index')->name('user.cart.checkout');
     Route::post('/cart/checkout', 'User\Cart\Checkout@checkout')->name('user.cart.checkout.submit');
+
+    // Order
+    Route::get('/order/list', 'User\Order\ListOrders@index')->name('user.order.list');
 
 });
 
