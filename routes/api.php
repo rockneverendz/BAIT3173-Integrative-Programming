@@ -25,4 +25,12 @@ Route::prefix('/user')->group(function(){
 
     // Registration Routes...
     Route::post('/register', 'API\User\Auth\RegisterController@register');
+
+    Route::group(['middleware' => 'auth:api'], function() {
+        // Meal
+        Route::get('/meals', 'API\User\MealController@index');
+        Route::get('/meals/{meal}', 'API\User\MealController@show');
+
+    });
+
 });
