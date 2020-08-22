@@ -21,6 +21,13 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <td><xsl:value-of select="availability" /></td>
     </tr>
     </xsl:for-each>
+    <tr>
+      <td></td>
+      <td></td>
+      <td >Total number of meals <xsl:value-of select="count(//meal)"/></td>
+      <td></td>
+      <td></td>
+    </tr>
   </table>
 </xsl:template>
 

@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// XML XSLT
+Route::get('user/meal/xml', 'User\Meal\XMLController@renderMeals')->name('user.meal.xml');
+Route::get('admin/order/xml', 'Admin\Order\XMLController@renderOrders')->name('admin.order.xml');
+Route::get('admin/credit/xml', 'Admin\Credit\XMLController@renderReloads')->name('admin.credit.xml');
+
+
 Route::prefix('/user')->group(function(){
     Route::get('/home', 'User\HomeController@index')->name('user.home');
     
@@ -91,9 +97,5 @@ Route::prefix('admin')->group(function(){
     Route::get('/meal/retrive/{id}', 'Admin\Meal\RetriveMeal@retriveMeal')->name('admin.meal.retrive');
     Route::post('/meal/update/{id}', 'Admin\Meal\UpdateMeal@updateMeal')->name('admin.meal.update');
     Route::get('/meal/delete/{id}', 'Admin\Meal\DeleteMeal@deleteMeal')->name('admin.meal.delete');
-
-    // XML XSLT
-    Route::get('/meal/xml', 'Admin\Meal\XMLController@renderMeals');
-    Route::get('/order/xml', 'Admin\Order\XMLController@listOrders');
 
 });

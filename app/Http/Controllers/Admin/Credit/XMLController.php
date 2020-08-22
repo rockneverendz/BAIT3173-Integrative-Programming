@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Order;
+namespace App\Http\Controllers\Admin\Credit;
 
 use App\Http\Controllers\Controller;
 use Mtownsend\ResponseXml\Providers\ResponseXmlServiceProvider;
@@ -11,6 +11,7 @@ use App\Meal;
 use App\Order;
 use App\Orderlist;
 use App\Admin;
+use App\Reload;
 use Auth;
 
 class XMLController extends Controller
@@ -20,31 +21,32 @@ class XMLController extends Controller
         $this->middleware('auth:admin');
     }
 
-    public function listOrders()
+    public function listReloads()
     {
 
-        $meallist = Meal::where('admin_id','=', Auth::id())->pluck('id')->toArray();
-        $orderlist = Orderlist::whereIn('meal_id', $meallist)->get()->toArray();
+        $reloads = Reload::orderBy('created_at', 'desc')->get()->toArray();
         
         $array = [
-            'order' => [
-                [$orderlist],
+            'reload' => [
+                    [$reloads]
             ],
         ];
 
         return response()->xml($array);
     }
 
-    public function renderOrders()
+    public function renderReloads()
     {
-        $meallist = Meal::where('admin_id','=', Auth::id())->pluck('id')->toArray();
-        $orderlist = Orderlist::whereIn('meal_id', $meallist)->get()->toArray();
+
+        $reloads = Reload::orderBy('created_at', 'desc')->get()->toArray();
         
         $array = [
-            'order' => [
-                [$orderlist],
+            'reload' => [
+                    [$reloads]
             ],
         ];
+        
+        //return response()->xml($array);
         
         // Load XML file
         $xml = new \DOMDocument;
@@ -52,7 +54,7 @@ class XMLController extends Controller
 
         // Load XSL file
         $xsl = new \DOMDocument;
-        $xsl->load('xsl\renderOrder.xsl');
+        $xsl->load('xsl\renderReload.xsl');
 
         // Configure the transformer
         $proc = new \XSLTProcessor;

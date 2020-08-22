@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Meal;
+namespace App\Http\Controllers\User\Meal;
 
 use App\Http\Controllers\Controller;
 use Mtownsend\ResponseXml\Providers\ResponseXmlServiceProvider;

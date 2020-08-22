@@ -18,6 +18,9 @@
                     <p>
                         <a href="{{ route('user.stall.list') }}">{{ __('Stall List') }}</a>
                     </p>
+                    <p>
+                        <a href="{{ route('user.meal.xml') }}">Meal List</a>
+                    </p>
                 </div>
             </div>
         </div>

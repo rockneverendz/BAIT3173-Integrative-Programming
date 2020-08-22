@@ -20,6 +20,12 @@
                         <a href="{{ route('admin.credit.topup') }}">{{ __('Top Up') }}</a>
                     </p>
                     <p>
+                        <a href="{{ route('admin.credit.xml') }}">Top Up XML</a>
+                    </p>
+                    <p>
+                        <a href="{{ route('admin.order.xml') }}">Orders XML</a>
+                    </p>
+                    <p>
                         <a href="{{ route('admin.meal.list') }}">{{ __('Meal List') }}</a>
                     </p>
                 </div>
