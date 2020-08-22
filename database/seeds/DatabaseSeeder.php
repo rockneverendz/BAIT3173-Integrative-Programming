@@ -6,6 +6,7 @@ use App\Admin;
 use App\Meal;
 use App\Order;
 use App\Orderlist;
+use App\Reload;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->seedOrder();
         $this->seedOrderlist();
 
+        $this->seedReload();
     }
 
     private function seedUsers()
@@ -32,6 +34,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Hououin Kyouma',
             'email' => 'user@gmail.com',
             'password' => Hash::make('password'),
+            'credit' => 100,
         ])->save();
     }
 
@@ -258,5 +261,16 @@ class DatabaseSeeder extends Seeder
             'quantity' => 8,
             'price_each' => 8.88,
         ])->save();
+    }
+
+    private function seedReload()
+    {
+        for ($x = 0; $x <= 10; $x++) {
+            Reload::create([
+                'admin_id' => '1',
+                'user_id' => '1',
+                'amount' => 10,
+            ])->save();
+        }
     }
 }
