@@ -32,6 +32,9 @@ Route::prefix('/user')->group(function(){
         Route::get('/meals/{meal}', 'API\User\MealController@show');
 
         Route::post('/cart/checkout', 'API\User\Checkout@checkout');
+        
+        Route::get('/order/list', 'API\User\OrderController@index');
+        Route::get('/order/{order}', 'API\User\OrderController@show');
 
     });
 
