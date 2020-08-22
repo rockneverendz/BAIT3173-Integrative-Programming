@@ -56,6 +56,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item">
+                                        {{  Auth::user()->credit  }} <span class="caret"></span>
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('user.order.list') }}">
                                         Orders <span class="caret"></span>
                                     </a>
