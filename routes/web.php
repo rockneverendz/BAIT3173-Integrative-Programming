@@ -35,7 +35,7 @@ Route::prefix('/user')->group(function(){
     Route::post('/password/email', 'User\Auth\ForgotPasswordController@sendResetLinkEmail')->name('user.password.email');
     Route::get('/password/reset', 'User\Auth\ForgotPasswordController@showLinkRequestForm')->name('user.password.request');
     Route::post('/password/reset', 'User\Auth\ResetPasswordController@reset')->name('user.password.update');
-    Route::get('/password/reset/{token}', 'User\Auth\ResetPasswordController@showResetForm')->name('user.password.reset');
+    Route::get('/password/reset/{token}', 'User\Auth\ResetPasswordController@showResetForm')->name('password.reset');
 
     // Registration Routes...
     Route::post('/register', 'User\Auth\RegisterController@register');
@@ -66,7 +66,7 @@ Route::prefix('/user')->group(function(){
 });
 
 
-Route::redirect('/admin', 'home');
+Route::redirect('/admin', '/admin/home');
 Route::prefix('admin')->group(function(){
     Route::get('/home', 'Admin\AdminController@index')->name('admin.home');
     
