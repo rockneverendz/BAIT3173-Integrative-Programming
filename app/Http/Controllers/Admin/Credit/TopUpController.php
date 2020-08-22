@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\Credit;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Reload;
+use Auth;
 
 class TopUpController extends Controller
 {
@@ -41,6 +43,12 @@ class TopUpController extends Controller
         // Update Database
         $user->credit = $after;
         $user->save();
+
+        $reload = new Reload;
+        $reload->user_id = $user->id;
+        $reload->admin_id = Auth::id();
+        $reload->amount = $amount;
+        $reload->save();
 
         // Continue to topup
         return back()->with('status',[
