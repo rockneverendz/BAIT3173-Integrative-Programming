@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use App\User;
 use App\Admin;
 use App\Meal;
+use App\Order;
+use App\Orderlist;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->seedUsers();
         $this->seedAdmins();
         $this->seedMeals();
+
+        $this->seedOrder();
+        $this->seedOrderlist();
+
     }
 
     private function seedUsers()
@@ -191,6 +197,66 @@ class DatabaseSeeder extends Seeder
             'availability' => true,
             'image' => 'public/images/seed_MeeGoreng.jpg',
             'admin_id' => '1',
+        ])->save();
+    }
+
+    private function seedOrder()
+    {
+        Order::create([
+            'status' => 'Paid',
+            'payment_amount' => 10,
+            'user_id' => '1',
+        ])->save();
+
+        Order::create([
+            'status' => 'Paid',
+            'payment_amount' => 20,
+            'user_id' => '1',
+        ])->save();
+    }
+    
+    private function seedOrderlist()
+    {
+        Orderlist::create([
+            'meal_id' => '2',
+            'order_id' => '1',
+            'quantity' => 2,
+            'price_each' => 2.22,
+        ])->save();
+        
+        Orderlist::create([
+            'meal_id' => '3',
+            'order_id' => '1',
+            'quantity' => 3,
+            'price_each' => 3.33,
+        ])->save();
+        
+        Orderlist::create([
+            'meal_id' => '4',
+            'order_id' => '1',
+            'quantity' => 4,
+            'price_each' => 4.44,
+        ])->save();
+
+        Orderlist::create([
+            'meal_id' => '6',
+            'order_id' => '2',
+            'quantity' => 6,
+            'price_each' => 6.66,
+        ])->save();
+        
+        Orderlist::create([
+            'meal_id' => '7',
+            'order_id' => '2',
+            'quantity' => 7,
+            'price_each' => 7.77,
+        ])->save();
+        
+        Orderlist::create([
+            'meal_id' => '8',
+            'order_id' => '2',
+            'quantity' => 8,
+            'price_each' => 8.88,
         ])->save();
     }
 }

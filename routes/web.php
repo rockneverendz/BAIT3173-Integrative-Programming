@@ -43,6 +43,24 @@ Route::prefix('/user')->group(function(){
     Route::post('/email/resend', 'User\Auth\VerificationController@resend')->name('user.verification.resend');
     Route::get('/email/verify', 'User\Auth\VerificationController@show')->name('user.verification.notice');
     Route::get('/email/verify/{id}/{hash}', 'User\Auth\VerificationController@verify')->name('user.verification.verify');    
+
+    // Stall
+    Route::get('/stall/list', 'User\Stall\ListStalls@index')->name('user.stall.list');
+    Route::get('/stall/{stall_id}', 'User\Stall\ListStalls@showStallDetails')->name('user.stall.retrive');
+
+    // Meal
+    Route::get('/meal/{meal_id}', 'User\Meal\RetriveMeal@index')->name('user.meal.retrive');
+    
+    // Cart
+    Route::post('/cart/add', 'User\Cart\UpdateCart@addToCart')->name('user.cart.add');
+    Route::get('/cart/list', 'User\Cart\ListCart@index')->name('user.cart.list');
+    Route::get('/cart/delete/{meal_id}', 'User\Cart\RemoveItem@removeItem')->name('user.cart.delete');
+    Route::get('/cart/checkout', 'User\Cart\Checkout@index')->name('user.cart.checkout');
+    Route::post('/cart/checkout', 'User\Cart\Checkout@checkout')->name('user.cart.checkout.submit');
+
+    // Order
+    Route::get('/order/list', 'User\Order\ListOrders@index')->name('user.order.list');
+
 });
 
 
