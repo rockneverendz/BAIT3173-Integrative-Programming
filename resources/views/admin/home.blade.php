@@ -28,6 +28,9 @@
                     <p>
                         <a href="{{ route('admin.meal.list') }}">{{ __('Meal List') }}</a>
                     </p>
+                    <p>
+                        <a href="{{ route('admin.meal.create') }}">New Meal</a>
+                    </p>
                 </div>
             </div>
         </div>
