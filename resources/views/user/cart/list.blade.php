@@ -58,7 +58,7 @@
             <div class="bg-light card mb-3 text-center">
                 <div class="card-body justify-content-end row">
                     <a class="btn btn-primary w-auto mx-3" href="{{ route('user.cart.checkout') }}" role="button">
-                        Continue
+                        Checkout
                     </a>
                 </div>
             </div>
