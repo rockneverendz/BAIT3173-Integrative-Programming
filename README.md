@@ -16,7 +16,7 @@ Composer
  1. Uncomment `extension=xsl` on `C:\xampp\php\php.ini`
  2. Open command prompt on root directory (where this README.md is located)
  3. `composer update`
- 4. Duplicate `.env.example` and rename it `.env`
+ 4. Duplicate `.env.example` and rename it `.env`, skip if it already exists.
  5. `php artisan key:generate`
  6. Using XAMPP, open MySQL admin panel
  7. Create MySQL database named `canteensystem`
