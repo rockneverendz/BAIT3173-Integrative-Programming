@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/xml', 'Admin\Meal\XMLController@renderMeals');
+
 Route::prefix('/user')->group(function(){
     Route::get('/home', 'User\HomeController@index')->name('user.home');
     

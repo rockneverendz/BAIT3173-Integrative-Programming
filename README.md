@@ -13,17 +13,18 @@ XAMPP
 Composer
 
 ## How to run
- 1. Open command prompt on root directory (where this README.md is located)
- 2. `composer update`
- 3. Duplicate `.env.example` and rename it `.env`
- 4. `php artisan key:generate`
- 5. Using XAMPP, open MySQL admin panel
- 6. Create MySQL database named `canteensystem`
- 7. Update `DB_DATABASE` in `.env` to `canteensystem`
- 8. `php artisan storage:link`
- 9. `php artisan migrate`
-10. `php artisan db:seed`
-11. `php artisan serve`
+ 1. Uncomment `extension=xsl` on `C:\xampp\php\php.ini`
+ 2. Open command prompt on root directory (where this README.md is located)
+ 3. `composer update`
+ 4. Duplicate `.env.example` and rename it `.env`
+ 5. `php artisan key:generate`
+ 6. Using XAMPP, open MySQL admin panel
+ 7. Create MySQL database named `canteensystem`
+ 8. Update `DB_DATABASE` in `.env` to `canteensystem`
+ 9. `php artisan storage:link`
+10. `php artisan migrate`
+11. `php artisan db:seed`
+12. `php artisan serve`
 
 ## FAQ
 
