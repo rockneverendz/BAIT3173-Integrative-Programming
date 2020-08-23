@@ -31,6 +31,9 @@
                     <p>
                         <a href="{{ route('admin.meal.create') }}">New Meal</a>
                     </p>
+                    <p>
+                        <a href="{{ route('admin.user.xml') }}">Display User XML</a>
+                    </p>
                 </div>
             </div>
         </div>
