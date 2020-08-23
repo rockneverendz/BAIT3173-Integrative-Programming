@@ -39,3 +39,14 @@ Route::prefix('/user')->group(function(){
     });
 
 });
+
+Route::prefix('/admin')->group(function(){
+    // Login & Logout
+    Route::post('/login', 'API\Admin\Auth\LoginController@login');
+    Route::post('/logout', 'API\Admin\Auth\LoginController@logout');
+
+    Route::group(['middleware' => 'auth:admin-api'], function() {
+        // Meal
+        Route::post('/topup', 'API\Admin\TopUpController@topup');
+    });
+});
