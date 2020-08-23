@@ -51,7 +51,9 @@ Run `php artisan migrate:refresh --seed`
     $admin->password = Hash::make('sample_password')
     $admin->save()
 
+## Disable debug mode
 
+Update `.env` file `APP_DEBUG=false`
 
 - PHP and MySQL/MariaDB
     - We will use PHP and MySQL (XAMPP)
