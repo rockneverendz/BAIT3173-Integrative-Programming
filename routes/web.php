@@ -20,6 +20,7 @@ Route::get('/', function () {
 // XML XSLT
 Route::get('user/meal/xml', 'User\Meal\XMLController@renderMeals')->name('user.meal.xml');
 Route::get('user/order/xml', 'User\Order\XMLController@renderOrders')->name('user.order.xml');
+Route::get('admin/xml', 'Admin\Auth\XMLController@renderAdmins')->name('admin.xml');
 Route::get('admin/order/xml', 'Admin\Order\XMLController@renderOrders')->name('admin.order.xml');
 Route::get('admin/credit/xml', 'Admin\Credit\XMLController@renderReloads')->name('admin.credit.xml');
 Route::get('admin/user/xml', 'Admin\XMLController@renderUsers')->name('admin.user.xml');
