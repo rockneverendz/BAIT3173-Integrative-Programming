@@ -25,6 +25,7 @@ Route::get('admin/order/xml', 'Admin\Order\XMLController@renderOrders')->name('a
 Route::get('admin/credit/xml', 'Admin\Credit\XMLController@renderReloads')->name('admin.credit.xml');
 Route::get('admin/user/xml', 'Admin\XMLController@renderUsers')->name('admin.user.xml');
 
+Route::redirect('/user', '/user/home');
 Route::prefix('/user')->group(function(){
     Route::get('/home', 'User\HomeController@index')->name('user.home');
     
